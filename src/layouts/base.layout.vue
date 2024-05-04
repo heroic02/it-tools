@@ -59,29 +59,6 @@ const tools = computed<ToolCategory[]>(() => [
 
         <CollapsibleToolMenu :tools-by-category="tools" />
 
-        <div class="footer">
-          <div>
-            <!-- IT-Tools -->
-
-            <!-- <c-link target="_blank" rel="noopener" :href="`https://github.com/heroic02/tree/v${version}`">
-              v{{ version }}
-            </c-link> -->
-
-            <template v-if="commitSha && commitSha.length > 0">
-              -
-              <c-link target="_blank" rel="noopener" type="primary"
-                :href="`https://github.com/heroic02/tree/${commitSha}`">
-                {{ commitSha }}
-              </c-link>
-            </template>
-          </div>
-          <!-- <div>
-            © {{ new Date().getFullYear() }}
-            <c-link target="_blank" rel="noopener" href="https://github.com/CorentinTh">
-              Corentin Thomasset
-            </c-link>
-          </div> -->
-        </div>
       </div>
     </template>
 

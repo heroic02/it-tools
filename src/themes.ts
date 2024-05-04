@@ -1,16 +1,27 @@
 import type { GlobalThemeOverrides } from 'naive-ui';
 
 export const lightThemeOverrides: GlobalThemeOverrides = {
+  common: {
+    primaryColor: '#ffb7db',
+    primaryColorHover: '#36AD6AFF',
+    primaryColorPressed: '#0C7A43FF',
+    primaryColorSuppl: '#36AD6AFF',
+  },
   Menu: {
     itemHeight: '32px',
   },
 
-  Layout: { color: '#f1f5f9' },
+  Layout: { color: '#ffb7db' },
 
   AutoComplete: {
     peers: {
       InternalSelectMenu: { height: '500px' },
     },
+  },
+  Input: {
+    color: '#ffb7db',
+    borderColor: '#ffb7db',
+    primaryColorHover: '#36AD6AFF',
   },
 };
 

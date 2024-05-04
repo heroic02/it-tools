@@ -10,13 +10,13 @@ const encryptInput = ref('');
 const encryptSecret = ref('');
 const encryptOutput = ref('');
 
-const { copy: copyEncrypted } = useCopy({ source: encryptOutput, text: 'Copy được rồi nhé em iu <3' });
+const { copy: copyEncrypted } = useCopy({ source: encryptOutput, text: 'Sao chép được rồi nhé em iu <3' });
 
 const decryptInput = ref('');
 const decryptSecret = ref('');
 const decryptOutput = ref('');
 
-const { copy: copyDecrypted } = useCopy({ source: decryptOutput, text: 'Copy được rồi nhé em iu <3' });
+const { copy: copyDecrypted } = useCopy({ source: decryptOutput, text: 'Sao chép được rồi nhé em iu <3' });
 
 watch([encryptInput, encryptSecret], async () => {
   const key = await generateKey(encryptSecret.value);
@@ -31,37 +31,39 @@ watch([decryptInput, decryptSecret], async () => {
 </script>
 
 <template>
-  <c-card title="Encrypt">
+  <c-card title="Mã hoá">
     <div flex gap-3 flex-col>
-      <c-input-text v-model:value="encryptInput" label="Input:" rows="4" multiline raw-text monospace autosize flex-1 />
+      <c-input-text v-model:value="encryptInput" label="Nhập thông tin: " rows="4" multiline raw-text monospace autosize
+        flex-1 />
       <div flex flex-1 flex-col gap-2>
-        <c-input-text v-model:value="encryptSecret" label="Secret key:" clearable raw-text />
+        <c-input-text v-model:value="encryptSecret" label="Mật khẩu:" clearable raw-text />
 
       </div>
     </div>
-    <c-input-text label="Output:" :value="encryptOutput" rows="3" multiline monospace readonly autosize mt-5 />
+    <c-input-text label="Kết quả" :value="encryptOutput" rows="3" multiline monospace readonly autosize mt-5 />
     <div mt-5 flex justify-center>
       <c-button @click="copyEncrypted()">
-        Copy
+        Sao chép
       </c-button>
     </div>
   </c-card>
-  <c-card title="Decrypt">
+  <c-card title="Giải mã">
     <div flex gap-3 flex-col>
-      <c-input-text v-model:value="decryptInput" label="Input:" rows="4" multiline raw-text monospace autosize flex-1 />
+      <c-input-text v-model:value="decryptInput" label="Nhập thông tin: " rows="4" multiline raw-text monospace autosize
+        flex-1 />
       <div flex flex-1 flex-col gap-2>
-        <c-input-text v-model:value="decryptSecret" label="Secret key:" clearable raw-text />
+        <c-input-text v-model:value="decryptSecret" label="Mật khẩu:" clearable raw-text />
       </div>
     </div>
     <!-- <c-alert v-if="decryptError" type="error" mt-12 title="Error while decrypting">
       {{ decryptError }}
     </c-alert>
-    <c-input-text v-else label="Output:" :value="decryptOutput" rows="3" multiline monospace readonly autosize mt-5 /> -->
+    <c-input-text v-else label="Kết quả" :value="decryptOutput" rows="3" multiline monospace readonly autosize mt-5 /> -->
 
-    <c-input-text label="Output:" :value="decryptOutput" rows="3" multiline monospace readonly autosize mt-5 />
+    <c-input-text label="Kết quả" :value="decryptOutput" rows="3" multiline monospace readonly autosize mt-5 />
     <div mt-5 flex justify-center>
       <c-button @click="copyDecrypted()">
-        Copy
+        Sao chép
       </c-button>
     </div>
   </c-card>
